@@ -8,6 +8,7 @@ type ScenarioProps = {
 const Scenario = ({ children }: ScenarioProps) => {
   return <>
     <div className={s.container}>
+      <div className={s.clouds}></div>
       {children}
     </div>
   </>

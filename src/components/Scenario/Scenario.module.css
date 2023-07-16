@@ -2,7 +2,6 @@
   height: 480px;
   position: relative;
   overflow: hidden;
-  border: 1px solid #444;
   background: url("/public/assets/floor/sprite_0.png") repeat-x;
   animation: animatedBackground 5s linear infinite;
 }
@@ -13,5 +12,22 @@
   }
   to {
     background-position: -1000px 100%;
+  }
+}
+
+.clouds {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+  background: url("/public/assets/clouds/sprite_0.png") repeat-x;
+  animation: animateClouds 18s linear infinite;
+}
+
+@keyframes animateClouds {
+  from {
+    background-position: 100% 100%;
+  }
+  to {
+    background-position: 0 100%;
   }
 }
