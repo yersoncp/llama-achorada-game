@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './App.css';
+import Scenario from './components/Scenario';
 
 function App() {
   const llamaRef = useRef<HTMLDivElement>(null);
@@ -11,7 +12,7 @@ function App() {
     const interval = setInterval(() => {
       children?.[i % frameCount].classList.remove("active");
       children?.[++i % frameCount].classList.add("active");
-    }, 500);
+    }, 150);
 
     return () => {
       clearInterval(interval);
@@ -20,10 +21,12 @@ function App() {
 
   return (
     <div className="App">
-      <div className="llama-container" ref={llamaRef}>
-        <img className="llama-image" src="/assets/llama/sprite_0.png" alt=""/>
-        <img className="llama-image" src="/assets/llama/sprite_1.png" alt=""/>
-      </div>
+      <Scenario>
+        <div className="llama-container" ref={llamaRef}>
+          <img className="llama-image" src="/assets/llama/sprite_0.png" alt=""/>
+          <img className="llama-image" src="/assets/llama/sprite_1.png" alt=""/>
+        </div>
+      </Scenario>
 
     </div>
   );

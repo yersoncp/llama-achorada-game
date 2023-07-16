@@ -1,0 +1,17 @@
+.container {
+  height: 480px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #444;
+  background: url("/public/assets/floor/sprite_0.png") repeat-x;
+  animation: animatedBackground 5s linear infinite;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 100%;
+  }
+  to {
+    background-position: -1000px 100%;
+  }
+}

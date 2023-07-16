@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: #24262b;
   min-height: 100vh;
 }
 
@@ -24,6 +24,9 @@
 .llama-container {
   width: 128px;
   height: 128px;
+  position: absolute;
+  bottom: 26px;
+  left: 80px;
 }
 
 .llama-container .llama-image {
