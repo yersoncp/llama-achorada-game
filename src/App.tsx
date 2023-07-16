@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useRef } from 'react';
 import './App.css';
 
 function App() {
+  const llamaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let children = llamaRef.current?.children;
+    let i = 0;
+    const frameCount = children?.length || 0;
+    const interval = setInterval(() => {
+      children?.[i % frameCount].classList.remove("active");
+      children?.[++i % frameCount].classList.add("active");
+    }, 500);
+
+    return () => {
+      clearInterval(interval);
+    }
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="llama-container" ref={llamaRef}>
+        <img className="llama-image" src="/assets/llama/sprite_0.png" alt=""/>
+        <img className="llama-image" src="/assets/llama/sprite_1.png" alt=""/>
+      </div>
+
     </div>
   );
 }
